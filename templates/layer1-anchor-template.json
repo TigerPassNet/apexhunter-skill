@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "last_updated": "2026-04-01T00:00:00Z",
+  "update_frequency": "weekly_or_on_regime_change",
+
+  "regime": {
+    "classification": "Ranging",
+    "confidence": 0.7,
+    "pillars": {
+      "trend": {
+        "status": "bearish",
+        "btc_14d_high": 74457,
+        "btc_14d_low": 64904,
+        "btc_current": 68175,
+        "btc_position_in_range": 0.34,
+        "btc_4h_ema20_vs_ema50": "bearish",
+        "btc_4h_ema_gap_percent": -0.93,
+        "note": "BTC dropped from $74.5K to $64.9K, bouncing to $68.2K. Bearish trend with relief bounce."
+      },
+      "oracle_consensus": {
+        "status": "bearish",
+        "short_count": 6,
+        "long_count": 0,
+        "bias_strength": 1.0,
+        "avg_oracle_entry_btc": 90000,
+        "avg_oracle_entry_eth": 2800,
+        "oracle_pnl_trend": "profitable_but_compressing",
+        "note": "6/6 oracles SHORT from $78K-$105K BTC. Still profitable but Oracle #2 ETH short now losing."
+      },
+      "institutional_flow": {
+        "status": "mixed",
+        "btc_etf_latest_flow_m": 1175,
+        "btc_etf_3d_trend": "reversal_from_outflow_to_inflow",
+        "stablecoin_trend": "neutral",
+        "note": "ETF flipped from -$158M outflow to +$1.175B inflow in one day. Major reversal signal."
+      }
+    },
+    "pillar_summary": "2/3 bearish (trend + oracle), 1/3 shifting (ETF flows reversed). Net: bearish but weakening.",
+    "allowed_bias": "prefer_shorts_but_watch_for_regime_change",
+    "regime_change_triggers": [
+      "BTC closes above $72K (above 14d midpoint) → reassess to Ranging/Risk-On",
+      "2+ consecutive days ETF inflow > $500M → elevate institutional pillar to bullish",
+      "3+ oracles close their BTC shorts → oracle consensus breaking"
+    ]
+  },
+
+  "macro_context": {
+    "geopolitical": "Middle East escalation (Iran-Kuwait-US). Risk-off pressure but BTC acting as safe haven.",
+    "monetary": "Unknown — need DXY/M2 data from BlockBeats",
+    "sentiment_index": null,
+    "note": "BTC ignoring geopolitical risk-off = potential regime shift to digital gold narrative"
+  },
+
+  "history": [
+    {
+      "date": "2026-03-31",
+      "regime": "Ranging",
+      "event": "Initial assessment. 6/6 oracles SHORT, BTC at $66.8K."
+    },
+    {
+      "date": "2026-04-01",
+      "regime": "Ranging (weakening bearish)",
+      "event": "ETF inflow $1.175B. BTC holds $68K despite Iran escalation. KOSPI +7%."
+    }
+  ]
+}

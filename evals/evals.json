@@ -1,0 +1,99 @@
+{
+  "skill_name": "tigertrader",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to see what smart money traders are doing on Hyperliquid right now. Show me the latest SM perp trades and tell me which tokens they're accumulating or shorting. Don't place any trades yet, just show me the data.",
+      "expected_output": "Should run nansen research smart-money perp-trades with proper filters, parse the response, identify token consensus (which tokens multiple SM are trading in same direction), show trader addresses/labels, trade values, and direction. Should NOT place any trades.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "a1",
+          "text": "Runs nansen research smart-money perp-trades command",
+          "type": "tool_usage"
+        },
+        {
+          "id": "a2",
+          "text": "Uses --filters with include_smart_money_labels JSON (not comma-separated --labels)",
+          "type": "command_syntax"
+        },
+        {
+          "id": "a3",
+          "text": "Groups trades by token and identifies directional consensus (e.g., 3 SM opening BTC Long)",
+          "type": "output_quality"
+        },
+        {
+          "id": "a4",
+          "text": "Shows trader_address_label, token_symbol, side, action, value_usd for each relevant trade",
+          "type": "output_completeness"
+        },
+        {
+          "id": "a5",
+          "text": "Does NOT attempt to place any orders via tigerpass hl order",
+          "type": "safety"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Find the most profitable Hyperliquid traders this month and show me their current positions. I want to know who's making money and what they're holding right now.",
+      "expected_output": "Should run perp leaderboard to find top traders, then profiler perp-positions for the top ones. Should show PnL, ROI, account value for each trader, then their current positions with entry price, leverage, unrealized PnL. Should identify potential oracle wallet candidates.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "b1",
+          "text": "Runs nansen research perp leaderboard command",
+          "type": "tool_usage"
+        },
+        {
+          "id": "b2",
+          "text": "Runs nansen research profiler perp-positions for at least one top trader address",
+          "type": "tool_usage"
+        },
+        {
+          "id": "b3",
+          "text": "Shows total_pnl, roi, and account_value for leaderboard traders",
+          "type": "output_completeness"
+        },
+        {
+          "id": "b4",
+          "text": "Shows position details including token_symbol, side, leverage, entry_price, unrealized PnL",
+          "type": "output_completeness"
+        },
+        {
+          "id": "b5",
+          "text": "Identifies which tokens/directions the top traders agree on",
+          "type": "output_quality"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Scan the Hyperliquid perp market - which tokens have the most volume, extreme funding rates, or unusual open interest? I want to find trading opportunities.",
+      "expected_output": "Should run perp screener, analyze funding rates for extremes (>0.05% or <-0.03%), identify OI surges, and present actionable opportunities with direction suggestions based on market structure signals.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "c1",
+          "text": "Runs nansen research perp screener command",
+          "type": "tool_usage"
+        },
+        {
+          "id": "c2",
+          "text": "Identifies tokens with extreme funding rates and explains the trading implication",
+          "type": "output_quality"
+        },
+        {
+          "id": "c3",
+          "text": "Shows volume, funding rate, open interest data for top tokens",
+          "type": "output_completeness"
+        },
+        {
+          "id": "c4",
+          "text": "Suggests directional bias based on funding/OI data (e.g., high positive funding = potential short opportunity)",
+          "type": "output_quality"
+        }
+      ]
+    }
+  ]
+}

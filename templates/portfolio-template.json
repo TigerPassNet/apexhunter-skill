@@ -1,0 +1,108 @@
+{
+  "version": 2,
+  "capital": {
+    "initial_usd": 0,
+    "total_usd": 0,
+    "available_usd": 0,
+    "margin_used_usd": 0,
+    "margin_used_percent": 0
+  },
+  "positions": [
+    {
+      "_comment": "Template — remove this entry. Each position looks like:",
+      "token": "BTC",
+      "direction": "LONG",
+      "entry_price": 95000,
+      "entry_time": "2026-03-31T08:00:00Z",
+      "size": 0.05,
+      "leverage": 3,
+      "margin_usd": 1583.33,
+      "notional_usd": 4750,
+      "stop_loss_price": 91400,
+      "atr_at_entry": 2000,
+      "atr_multiplier": 1.8,
+      "tp1_price": 109365,
+      "tp2_price": 123500,
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "trailing_stop_active": false,
+      "trailing_stop_percent": 0.06,
+      "peak_price": 95000,
+      "trough_price": 95000,
+      "max_hold_days": 7,
+      "extended": false,
+      "conviction_score": 0.72,
+      "conviction_breakdown": {
+        "signal_a": 0.28,
+        "signal_b": 0.15,
+        "signal_c": 0.08,
+        "signal_d": 0.10
+      },
+      "regime_at_entry": "Ranging",
+      "funding_cumulative_usd": 0,
+      "is_mutation": false,
+      "mutation_id": null,
+      "scale_in_count": 0,
+      "scale_in_max": 1
+    }
+  ],
+  "closed_trades": [
+    {
+      "_comment": "Template — remove this entry.",
+      "token": "ETH",
+      "direction": "SHORT",
+      "entry_price": 3800,
+      "exit_price": 3500,
+      "entry_time": "2026-03-25T12:00:00Z",
+      "exit_time": "2026-03-28T16:00:00Z",
+      "size": 1.5,
+      "leverage": 2,
+      "margin_usd": 2850,
+      "realized_pnl_usd": 450,
+      "realized_pnl_percent": 15.79,
+      "exit_reason": "take_profit_tier_2",
+      "hold_days": 3.17,
+      "peak_price_during_hold": 3820,
+      "trough_price_during_hold": 3450,
+      "price_48h_after_exit": 3520,
+      "conviction_score": 0.68,
+      "conviction_breakdown": {
+        "signal_a": 0.22,
+        "signal_b": 0.18,
+        "signal_c": 0.12,
+        "signal_d": 0.08
+      },
+      "regime_at_entry": "Risk-Off",
+      "funding_cumulative_usd": -12.50,
+      "is_mutation": false,
+      "mutation_id": null,
+      "triggered_rules": {
+        "signal_a_contributed": true,
+        "signal_b_contributed": true,
+        "signal_c_contributed": true,
+        "signal_d_contributed": false
+      }
+    }
+  ],
+  "daily_pnl": [],
+  "weekly_pnl": [],
+  "price_history": {},
+  "metrics": {
+    "total_trades": 0,
+    "long_trades": 0,
+    "short_trades": 0,
+    "win_rate": 0,
+    "long_win_rate": 0,
+    "short_win_rate": 0,
+    "profit_factor": 0,
+    "expectancy": 0,
+    "max_drawdown": 0,
+    "sharpe_ratio": 0,
+    "sortino_ratio": 0,
+    "avg_hold_days": 0,
+    "avg_leverage": 0,
+    "total_funding_paid": 0,
+    "total_funding_received": 0,
+    "net_funding": 0
+  }
+}

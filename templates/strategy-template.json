@@ -1,0 +1,223 @@
+{
+  "version": 3,
+  "generated_at": "2026-03-31T08:00:00Z",
+  "expires_at": "2026-04-03T08:00:00Z",
+  "next_research_date": "2026-04-03",
+  "next_research_reason": "standard 3-day cycle",
+  "regime": {
+    "classification": "Ranging",
+    "btc_price_at_generation": 95000,
+    "btc_20_ema": 94500,
+    "btc_50_ema": 93800,
+    "btc_atr_14": 2000,
+    "btc_7d_change_percent": -1.2,
+    "override": null,
+    "override_reason": null
+  },
+  "leaderboard_direction_bias": {
+    "direction": "SHORT",
+    "bias_strength": 1.0,
+    "long_count": 0,
+    "short_count": 8,
+    "note": "8/8 active top traders SHORT-dominant (ETH, BTC shorts)"
+  },
+  "signal_weights_tier2": {
+    "signal_a": 0.40,
+    "signal_b": 0.25,
+    "signal_c": 0.15,
+    "signal_d": 0.20
+  },
+  "signal_weights_tier1": {
+    "signal_a": 0.20,
+    "signal_b": 0.15,
+    "signal_c": 0.30,
+    "signal_d": 0.35
+  },
+  "signal_a": {
+    "description": "SM Perp Trades — real-time SM trading activity on Hyperliquid",
+    "data": [
+      {
+        "_comment": "Template entry — replace with actual data",
+        "token": "BTC",
+        "long_traders": 3,
+        "short_traders": 1,
+        "long_value_usd": 450000,
+        "short_value_usd": 80000,
+        "fund_involved": false,
+        "consensus": "long_dominant",
+        "score_long": 0.28,
+        "score_short": 0.05
+      }
+    ]
+  },
+  "signal_b": {
+    "description": "Oracle Wallet Tracking — proven profitable HL traders",
+    "active_oracles": 0,
+    "data": [
+      {
+        "_comment": "Template entry",
+        "token": "BTC",
+        "oracle_positions": [
+          {
+            "address": "0x...",
+            "status": "verified_oracle",
+            "weight": 0.75,
+            "side": "Long",
+            "position_value_usd": 120000,
+            "leverage": 3,
+            "entry_price": 94500,
+            "is_new_position": true
+          }
+        ],
+        "score_long": 0.15,
+        "score_short": 0.00
+      }
+    ]
+  },
+  "signal_c": {
+    "description": "Market Structure — funding, OI, SM net position, Nansen indicators",
+    "data": [
+      {
+        "_comment": "Template entry",
+        "token": "BTC",
+        "funding_rate_8h": 0.02,
+        "open_interest_usd": 5000000000,
+        "oi_24h_change_percent": 5.2,
+        "sm_net_position_change": 1200000,
+        "sm_long_position_usd": 8000000,
+        "sm_short_position_usd": 3500000,
+        "nansen_momentum": "bullish",
+        "nansen_momentum_percentile": 72,
+        "nansen_funding_rate_score": "neutral",
+        "score_long": 0.08,
+        "score_short": 0.02
+      }
+    ]
+  },
+  "signal_d": {
+    "description": "Trend Confirmation — EMA crossover, ATR, SM netflow on HyperEVM",
+    "data": [
+      {
+        "_comment": "Template entry",
+        "token": "BTC",
+        "ema_20": 95200,
+        "ema_50": 94100,
+        "ema_trend": "bullish_cross",
+        "price_vs_ema20": "above",
+        "atr_14": 2000,
+        "sm_netflow_hyperevm_7d": 12000000,
+        "sm_netflow_direction": "inflow",
+        "score_long": 0.10,
+        "score_short": 0.02
+      }
+    ]
+  },
+  "funding_arb_watchlist": {
+    "description": "Strategy B — Independent funding arbitrage positions (30% capital pool)",
+    "capital_pool_percent": 30,
+    "data": [
+      {
+        "_comment": "Template entry",
+        "token": "xyz:HYUNDAI",
+        "funding_rate_8h": 0.09,
+        "annualized_percent": 790,
+        "direction": "SHORT",
+        "open_interest_usd": 282000,
+        "volume_24h_usd": 11300000,
+        "liquidity_check": "PASS",
+        "is_funding_arb": true
+      }
+    ]
+  },
+  "pairs_trades": [
+    {
+      "_comment": "Template — detected pairs/relative-value trades from SM data",
+      "trader_address": "0x10761b...",
+      "long_token": "xyz:INTC",
+      "short_token": "xyz:NVDA",
+      "long_value_usd": 31934,
+      "short_value_usd": 214652,
+      "trade_count": 46,
+      "pattern": "systematic_execution",
+      "conviction_boost": 0.05
+    }
+  ],
+  "watchlist": [
+    {
+      "_comment": "Template entry — replace with actual entries",
+      "token": "BTC",
+      "tier": 1,
+      "direction": "LONG",
+      "conviction_score": 0.72,
+      "conviction_breakdown": {
+        "signal_a": 0.28,
+        "signal_b": 0.15,
+        "signal_c": 0.08,
+        "signal_d": 0.06,
+        "leaderboard_bias_adj": 0.05
+      },
+      "position_size_percent": 5,
+      "leverage": 3,
+      "entry_conditions": {
+        "max_24h_pump": 10,
+        "max_24h_dump": -20,
+        "dip_buy_range": [-5, -15],
+        "ideal_entry_note": "Look for pullback to $93K-94K"
+      },
+      "stop_loss": {
+        "type": "atr",
+        "atr_value": 2000,
+        "atr_multiplier": 1.8,
+        "stop_price": 91400
+      },
+      "take_profit": {
+        "tier_1_percent": 15,
+        "tier_1_close_percent": 30,
+        "tier_2_percent": 30,
+        "tier_2_close_percent": 30,
+        "tier_3_trailing_percent": 6
+      },
+      "max_hold_days": 7
+    }
+  ],
+  "sell_watchlist": [
+    {
+      "_comment": "Template — tokens to watch for exit signals",
+      "token": "SOL",
+      "signals": [
+        "SM closing long positions (3 traders, $200K total)",
+        "Funding rate spiked to 0.08%/8h"
+      ],
+      "severity": "high",
+      "action": "tighten_stop"
+    }
+  ],
+  "fat_pitch_candidates": [],
+  "asset_tiers": {
+    "tier1": ["BTC", "ETH"],
+    "tier2": ["SOL", "HYPE", "BNB", "DOGE", "PEPE"],
+    "tier3": ["xyz:HYUNDAI", "xyz:SMSN", "xyz:NVDA"]
+  },
+  "blacklist": [
+    {
+      "_comment": "Template — rejected tokens with reasons",
+      "token": "DOGE",
+      "reason": "No SM activity, conviction 0.12, below minimum threshold"
+    }
+  ],
+  "risk_limits": {
+    "max_positions": 6,
+    "max_margin_percent": 30,
+    "max_same_direction_percent": 20,
+    "max_single_position_percent": 10,
+    "max_leverage": 5,
+    "max_short_leverage": 3,
+    "daily_loss_freeze_percent": 5,
+    "weekly_loss_freeze_percent": 8
+  },
+  "credit_usage": {
+    "this_research": 33,
+    "remaining_credits": 967,
+    "estimated_monthly_usage": 1330
+  }
+}
